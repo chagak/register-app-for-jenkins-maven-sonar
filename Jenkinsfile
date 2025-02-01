@@ -40,16 +40,16 @@ pipeline {
            }
        }
 
-//        stage("SonarQube Analysis"){
-//            steps {
-// 	           script {
-// 		        withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
+	stage("SonarQube Analysis"){
+            steps {
+ 	           script {
+ 		        withSonarQubeEnv(credentialsId: 'jenkins-sonarqube-token') { 
 	    		   sh 'mvn clean package sonar:sonar'
-//                         # sh "mvn sonar:sonar"
-// 		        }
-// 	           }	
-//            }
-//        }
+                         # sh "mvn sonar:sonar"
+		        }
+   		   }	
+             }
+        }
 
 //        stage("Quality Gate"){
 //            steps {
