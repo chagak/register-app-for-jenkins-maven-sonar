@@ -23,7 +23,7 @@ pipeline {
 
         stage("Checkout from SCM"){
                 steps {
-                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/chagak/register-app-for-jenkins-maven-sonar.git'
+                    git branch: 'main', url: 'https://github.com/chagak/register-app-for-jenkins-maven-sonar.git'
                 }
         }
 
@@ -51,14 +51,14 @@ pipeline {
              }
         }
 
-//        stage("Quality Gate"){
-//            steps {
-//                script {
-//                     waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonarqube-token'
-//                 }	
-//             }
+       stage("Quality Gate"){
+           steps {
+               script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'jenkins-sonarqube-token'
+                }	
+            }
 
-//         }
+        }
 
 //         stage("Build & Push Docker Image") {
 //             steps {
